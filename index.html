@@ -1,136 +1,571 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>孙鸿的博客</title><meta name="description"><meta name="author" content="孙鸿"><meta name="copyright" content="孙鸿"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="孙鸿的博客"><meta property="og:url" content="http://yoursite.com/"><meta property="og:site_name" content="孙鸿的博客"><meta property="og:description"><meta property="og:image" content="http://yoursite.com/img/avatar.png"><meta property="article:published_time" content="2020-08-30T03:57:05.290Z"><meta property="article:modified_time" content="2020-08-30T03:57:05.290Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
-  }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
-  }
-}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
-var getCookies = function (name) {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop().split(';').shift()
-}
+  
+  <title>孙鸿的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="孙鸿的博客">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="孙鸿的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="孙鸿">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="孙鸿的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-var autoChangeMode = 'false'
-var t = getCookies('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+<meta name="generator" content="Hexo 5.1.1"></head>
 
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (Cookies.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
-      }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  hexoversion: '5.1.1',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: false,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false    
-}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isSidebar: false,
-  postUpdate: '2020-08-30 11:57:05'
-}</script><noscript><style>
-#nav {
-  opacity: 1
-}
-.justified-gallery img {
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">1</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">孙鸿的博客</a></span><span class="pull-right menus"><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">孙鸿的博客</h1><div id="site_subtitle"><span id="subtitle"></span></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/30/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC%20/" title="《红楼梦脂评汇校本》">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《红楼梦脂评汇校本》"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/30/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC%20/" title="《红楼梦脂评汇校本》">《红楼梦脂评汇校本》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-30T03:56:47.682Z" title="发表于 2020-08-30 11:56:47">2020-08-30</time></span></div><div class="content">
- 
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">孙鸿的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-红楼梦脂评汇校本 " class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/30/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC%20/" class="article-date">
+  <time datetime="2020-08-30T03:56:47.682Z" itemprop="datePublished">2020-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/30/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC%20/">《红楼梦脂评汇校本》</a>
+    </h1>
+  
 
-《红楼梦脂评汇校本》作者：曹雪芹 脂砚斋 吴铭恩出版社：北方联合出版传媒集团 万卷出版公司出版日期：2013-10ISBN：9787547028056
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+<img src="https://img3.doubanio.com/view/subject/l/public/s27172450.jpg" width="180" > 
+
+<p><font  size=4>《红楼梦脂评汇校本》</font></br><br></br><br><font color='#6e6e6e' size=2>作者：曹雪芹 脂砚斋 吴铭恩</font><br></br><br><font color='#6e6e6e' size=2>出版社：北方联合出版传媒集团 万卷出版公司</font><br></br><br><font color='#6e6e6e' size=2>出版日期：2013-10</font><br></br><br><font color='#6e6e6e' size=2>ISBN：9787547028056</font><br></br></p>
+</center>
+
+<hr>
+<p>🎯 共 76 条书摘</p>
+<p> <strong>第 1 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀</strong></p>
+<blockquote>
+<p>今古穷酸色心最重。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 2 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀</strong></p>
+<blockquote>
+<p>今古穷酸皆会替女妇心中取中自己。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 3 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀</strong></p>
+<blockquote>
+<p>读书人不在黄道黑道，总以事理为要，不及面辞了。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 4 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀</strong></p>
+<blockquote>
+<p>谁不解得世事如此，有龙象力者方能放得下。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 5 条：第　二　回　贾夫人仙逝扬州城　冷子兴演说荣国府</strong></p>
+<blockquote>
+<p>可知世人原在运数，不在眼下之高低也。此则大有深意存焉。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 6 条：第　二　回　贾夫人仙逝扬州城　冷子兴演说荣国府</strong></p>
+<blockquote>
+<p>那雨村心中虽十分惭恨，却面上全无一点怨色，仍是喜悦自若。 ￼ ￼此亦奸雄必有之态。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 7 条：第　二　回　贾夫人仙逝扬州城　冷子兴演说荣国府</strong></p>
+<blockquote>
+<p>身后有馀忘缩手，眼前无路想回头。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 8 条：第　二　回　贾夫人仙逝扬州城　冷子兴演说荣国府</strong></p>
+<blockquote>
+<p>安富尊荣者尽多，运筹谋画者无一，</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 9 条：第　三　回　金陵城起复贾雨村　荣国府收养林黛玉</strong></p>
+<blockquote>
+<p>人参养荣丸。” ￼ ￼人生自当自养荣卫。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 10 条：第　三　回　金陵城起复贾雨村　荣国府收养林黛玉</strong></p>
+<blockquote>
+<p>妹妹几岁了？可也上过学？现吃什么药？</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 11 条：第　三　回　金陵城起复贾雨村　荣国府收养林黛玉</strong></p>
+<blockquote>
+<p>试问石兄：此一摔，比在青埂峰下萧然坦卧何如？</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 12 条：第　四　回　薄命女偏逢薄命郎　葫芦僧乱判葫芦案</strong></p>
+<blockquote>
+<p>世路难行钱作马。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 13 条：第　四　回　薄命女偏逢薄命郎　葫芦僧乱判葫芦案</strong></p>
+<blockquote>
+<p>老爷当年何等明决，今日何翻成个没主意的人了！ ￼ ￼利欲薰心，必致如此。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 14 条：第　五　回　开生面梦演红楼梦　立新场情传幻境情</strong></p>
+<blockquote>
+<p>亲密，既亲密，则不免一时有求全之毁、不虞之隙。 ￼ ￼八字定评，有趣。不独黛玉、宝玉二人，亦可为古今天下亲密人当头一喝。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 15 条：第　五　回　开生面梦演红楼梦　立新场情传幻境情</strong></p>
+<blockquote>
+<p>自古穷通皆有定，离合岂无缘？</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 16 条：第　七　回　送宫花周瑞叹英莲　谈肄业秦钟结宝玉</strong></p>
+<blockquote>
+<p>还是单送我一个人的，还是别的姑娘们都有？”</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 17 条：第　七　回　送宫花周瑞叹英莲　谈肄业秦钟结宝玉</strong></p>
+<blockquote>
+<p>我就知道，别人不挑剩下的也不给我。替我道谢罢！”</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 18 条：第　七　回　送宫花周瑞叹英莲　谈肄业秦钟结宝玉</strong></p>
+<blockquote>
+<p>天下竟有这等人物！如今看来，我竟成了泥猪癞狗了。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 19 条：第　八　回　薛宝钗小恙梨香院　贾宝玉大醉绛芸轩</strong></p>
+<blockquote>
+<p>画神鬼易，画人物难。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 20 条：第　八　回　薛宝钗小恙梨香院　贾宝玉大醉绛芸轩</strong></p>
+<blockquote>
+<p>大如雀卵， ￼ ￼体。灿若明霞， ￼ ￼色。莹润如酥， ￼ ￼质。五色花纹缠护。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 21 条：第　八　回　薛宝钗小恙梨香院　贾宝玉大醉绛芸轩</strong></p>
+<blockquote>
+<p>◇作人要老诚，作文要狡猾。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 22 条：第　八　回　薛宝钗小恙梨香院　贾宝玉大醉绛芸轩</strong></p>
+<blockquote>
+<p>知命知身，识理识性，博学不杂，庶可称为佳人。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 23 条：第　八　回　薛宝钗小恙梨香院　贾宝玉大醉绛芸轩</strong></p>
+<blockquote>
+<p>宝玉正在心甜意洽之时，和宝黛姊妹说说笑笑的，试问石兄：比当日青埂峰猿啼虎啸之声何如？那肯不吃。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 24 条：第　八　回　薛宝钗小恙梨香院　贾宝玉大醉绛芸轩</strong></p>
+<blockquote>
+<p>真真这林姑娘，说出一句话来，比刀子还尖。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 25 条：第　十　回　金寡妇贪利权受辱　张太医论病细穷源</strong></p>
+<blockquote>
+<p>聪明忒过，则不如意事常有，不如意事常有，则思虑太过。此</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 26 条：第 十二 回　王熙凤毒设相思局　贾天祥正照风月鉴</strong></p>
+<blockquote>
+<p>心内发膨胀，口内无滋味，脚下如绵，眼中似醋，黑夜作烧，白昼常倦，下溺连精，嗽痰带血。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 27 条：第 十二 回　王熙凤毒设相思局　贾天祥正照风月鉴</strong></p>
+<blockquote>
+<p>观者记之，不要看这书正面，方是会看。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 28 条：第 十三 回　秦可卿死封龙禁尉　王熙凤协理宁国府</strong></p>
+<blockquote>
+<p>生死穷通何处真？英明难遏是精神。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 29 条：第 十三 回　秦可卿死封龙禁尉　王熙凤协理宁国府</strong></p>
+<blockquote>
+<p>头一件是人口混杂，遗失东西；第二件，事无专执，临期推委；第三件，需用过费，滥支冒领；第四件，任无大小，苦乐不均；第五件，家人豪纵，有脸者不服钤束，无脸者不能上进。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 30 条：第 十四 回　林如海捐馆扬州城　贾宝玉路谒北静王</strong></p>
+<blockquote>
+<p>既托了我，我就说不得要讨你们嫌了。 ￼ ￼先站地步。我可比不得你们奶奶好性儿，由着你们去，再不要说你们这府里‘原是这样的’， ￼ ￼此话听熟了。一叹！ ￼ ￼“不要说‘原是这样’的话”，破尽痼弊根底。这如今可要依着我， ￼ ￼婉转得妙！行错我半点儿，管不得谁是有脸的，谁是没脸的，一例现清白处治！”说着，便吩咐彩明念花名册，按名一个一个的唤进来看视。 ￼ ￼量才而用之意。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 31 条：第 十四 回　林如海捐馆扬州城　贾宝玉路谒北静王</strong></p>
+<blockquote>
+<p>凡凤姐恼时，偏偏用“笑”字，是章法。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 32 条：第 十四 回　林如海捐馆扬州城　贾宝玉路谒北静王</strong></p>
+<blockquote>
+<p>明儿再有误的打四十，后日的六十，有不怕打的只管误！”</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 33 条：第 十四 回　林如海捐馆扬州城　贾宝玉路谒北静王</strong></p>
+<blockquote>
+<p>大抵事之不理，法之不行，多因偏于爱恶，幽柔不断。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 34 条：第 十五 回　王熙凤弄权铁槛寺　秦鲸卿得趣馒头庵</strong></p>
+<blockquote>
+<p>欲显铮铮不避嫌，英雄每入小人缘。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 35 条：第 十五 回　王熙凤弄权铁槛寺　秦鲸卿得趣馒头庵</strong></p>
+<blockquote>
+<p>源远水则浊，枝繁果则稀</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 36 条：第 十五 回　王熙凤弄权铁槛寺　秦鲸卿得趣馒头庵</strong></p>
+<blockquote>
+<p>一碗茶也来争，我难道手里有蜜！”</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 37 条：第 十五 回　王熙凤弄权铁槛寺　秦鲸卿得趣馒头庵</strong></p>
+<blockquote>
+<p>阿凤聪明中的痴人。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 38 条：第 十六 回　贾元春才选凤藻宫　秦鲸卿夭逝黄泉路</strong></p>
+<blockquote>
+<p>我那里照管得这些事！见识又浅，口角又夯，心肠又直率，人家给个棒槌，我就认作针。脸又软，搁不住人给两句好话，心里就慈悲了。况且又无经历过大事，胆子又小，太太略有些不自在，就吓得我连觉也睡不着了。我苦辞了几回，太太又不容辞，倒反说我图受用了，不肯习学了。殊不知我是捻着一把汗儿呢。一句也不敢多说，一步也不敢多走。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 39 条：第 十六 回　贾元春才选凤藻宫　秦鲸卿夭逝黄泉路</strong></p>
+<blockquote>
+<p>凤之待琏兄如弄小儿，可畏之至。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 40 条：第 十七 回　大观园试才题对额　荣国府归省庆元宵</strong></p>
+<blockquote>
+<p>豪华虽足羡，离别却难堪。博得虚名在，谁人识苦甘？</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 41 条：第 十八 回　大观园试才题对额　荣国府归省庆元宵（续）</strong></p>
+<blockquote>
+<p>可见智者居心无一时弛怠！</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 42 条：第 十八 回　大观园试才题对额　荣国府归省庆元宵（续）</strong></p>
+<blockquote>
+<p>不严不能成器，过严恐生不虞，且致父母之忧。”</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 43 条：第 十九 回　情切切良宵花解语　意绵绵静日玉生香</strong></p>
+<blockquote>
+<p>黛玉道：“放屁！</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 44 条：第 十九 回　情切切良宵花解语　意绵绵静日玉生香</strong></p>
+<blockquote>
+<p>美人忘容，花则忘香。”此则黛玉不知自骨肉中之香同。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 45 条：第 二十 回　王熙凤正言弹妒意　林黛玉俏语谑娇音</strong></p>
+<blockquote>
+<p>要知自古及今，愈是尤物，其猜忌嫉妒愈甚。若一味浑厚大量涵养，则有何可令人怜爱护惜哉？然后知宝钗、袭人等行为，并非一味蠢拙古板以女夫子自居，当绣幕灯前、绿窗月下，亦颇有或调或妒、轻俏艳丽等说，不过一时取乐买笑耳，非切切一味妒才嫉贤也，是以高诸人百倍。不然，宝玉何甘心受屈于二女夫子哉？看过后文则知矣。故观书诸君子不必恶晴雯，正该感晴雯金闺绣阁中生色方是。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 46 条：第 二十 回　王熙凤正言弹妒意　林黛玉俏语谑娇音</strong></p>
+<blockquote>
+<p>头一件，咱们是姑舅姊妹，宝姐姐是两姨姊妹，论亲戚，他比你疏。第二件，你先来，咱们两个一桌吃，一床睡，长的这么大了，他是才来的，岂有个为他疏你的？</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 47 条：第二十一回　贤袭人娇嗔箴宝玉　俏平儿软语救贾琏</strong></p>
+<blockquote>
+<p>不悔自己无见识，却将丑语怪他人。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 48 条：第二十一回　贤袭人娇嗔箴宝玉　俏平儿软语救贾琏</strong></p>
+<blockquote>
+<p>淑女从来多抱怨，娇妻自古便含酸。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 49 条：第二十二回　听曲文宝玉悟禅机　制灯谜贾政悲谶语</strong></p>
+<blockquote>
+<p>巧者劳而智者忧，无能者无所求，饱食而遨游，泛若不系之舟</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 50 条：第二十二回　听曲文宝玉悟禅机　制灯谜贾政悲谶语</strong></p>
+<blockquote>
+<p>无我原非你，从他不解伊。肆行无碍凭来去。茫茫着甚悲愁喜，纷纷说甚亲疏密。从前碌碌却因何，到如今回头试想真无趣！</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 51 条：第二十八回　蒋玉菡情赠茜香罗　薛宝钗羞笼红麝串</strong></p>
+<blockquote>
+<p>花影不离身左右，鸟声只在耳东西。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 52 条：第三十一回　撕扇子作千金一笑　因麒麟伏白首双星</strong></p>
+<blockquote>
+<p>你爱打就打，这些东西原不过是借人所用，你爱这样，我爱那样，各自性情不同。比如那扇子原是扇的，你要撕着玩也可以使得，只是不可生气时拿他出气。就如杯盘，原是盛东西的，你喜听那一声响，就故意的碎了也可以使得，只是别在生气时拿他出气。这就是爱物了。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 53 条：第三十二回　诉肺腑心迷活宝玉　含耻辱情烈死金钏</strong></p>
+<blockquote>
+<p>“好哥哥，你不必说话教我恶心。只会在我们跟前说话，见了你林妹妹，又不知怎么了。”</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 54 条：第三十四回　情中情因情感妹妹　错里错以错劝哥哥</strong></p>
+<blockquote>
+<p>人有百折不回之真心，方能成旷世稀有之事业。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 55 条：第三十八回　林潇湘魁夺菊花诗　薛蘅芜讽和螃蟹咏</strong></p>
+<blockquote>
+<p>近之暴发专讲(理)[礼]法，竟不知礼法，此似无礼而礼法井井，所谓“整瓶不动半瓶摇”，又曰“习惯成自然”，真不谬也。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 56 条：第四十二回　蘅芜君兰言解疑癖　潇湘子雅谑补馀香</strong></p>
+<blockquote>
+<p>男人们读书不明理，尚且不如不读书的好，何况你我。就连作诗写字等事，原不是你我分内之事，究竟也不是男人分内之事。男人们读书明理，辅国治民，这便好了。作者一片苦心，代佛说法，代圣讲道，看书者不可轻忽。只是如今并不听见有这样的人，读了书倒更坏了。这是书误了他，可惜他也把书遭塌了，所以竟不如耕种买卖，倒没有什么大害处。你我只该做些针黹纺织的事才是，偏又认得了字，既认得了字，不过拣那正经的看也罢了，最怕见了些杂书，移了性情，就不可救了。”</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 57 条：第四十三回　闲取乐偶攒金庆寿　不了情暂撮土为香</strong></p>
+<blockquote>
+<p>所以世人无论贫富，各有愁肠，终不能时时遂心如意。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 58 条：第四十九回　琉璃世界白雪红梅　脂粉香娃割腥啖膻</strong></p>
+<blockquote>
+<p>蜂腰猿背，鹤势螂形。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 59 条：第五十三回　宁国府除夕祭宗祠　荣国府元宵开夜宴</strong></p>
+<blockquote>
+<p>晴雯此症虽重，幸亏他素习是个使力不使心的；再者素习饮食清淡，饥饱无伤。这贾宅中的风俗秘法，无论上下，只一略有些伤风咳嗽，总以净饿为主，次则服药调养。故于前日一病时，净饿了两三日，又谨慎服药调治，如今劳碌了些，又加倍培养了几日，便渐渐的好了。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 60 条：第五十五回　辱亲女愚妾争闲气　欺幼主刁奴蓄险心</strong></p>
+<blockquote>
+<p>几件事过手，渐觉探春精细处不让凤姐，只不过是言语安静，性情和顺而已。 ￼ ￼这是小姐身份耳，阿凤未出阁想亦如此。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 61 条：第五十五回　辱亲女愚妾争闲气　欺幼主刁奴蓄险心</strong></p>
+<blockquote>
+<p>那一个主子不疼出力得用的人？那一个好人用人拉扯的？”</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 62 条：第五十九回　柳叶渚边嗔莺咤燕　绛芸轩里召将飞符</strong></p>
+<blockquote>
+<p>山无起伏，便是顽山；水无潆洄，便是死水。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 63 条：第五十九回　柳叶渚边嗔莺咤燕　绛芸轩里召将飞符</strong></p>
+<blockquote>
+<p>女孩儿未出嫁，是颗无价之宝珠；出了嫁，不知怎么就变出许多的不好的毛病②来，虽是颗珠子，却没有光彩宝色，是颗死珠了；再老了，更变的不是珠子，竟是鱼眼睛了。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 64 条：第 六十 回　茉莉粉替去蔷薇硝　玫瑰露引来茯苓霜</strong></p>
+<blockquote>
+<p>着笔如苍鹰搏兔，青狮戏球，不肯下一死爪。绝世妙文！</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 65 条：第六十二回　憨湘云醉眠芍药裀　呆香菱情解石榴裙</strong></p>
+<blockquote>
+<p>正说着，只见一个小丫头笑嘻嘻的走来：“姑娘们快瞧云姑娘去，吃醉了图凉快，在山子后头一块青板石凳上睡着了。”众人听说，都笑道：“快别吵嚷。”说着，都走来看时，果见湘云卧于山石僻处一个石凳子上，业经香梦沉酣。四面芍药花飞了一身，满头、脸、衣襟上皆是红香散乱，手中的扇子在地下，也半被落花埋了，一群蜂蝶闹穰穰的围着他，又用鲛帕包了一包芍药花瓣枕着。众人看了，又是爱，又是笑，忙上来推唤挽扶。湘云口内犹作睡语说酒令，唧唧嘟嘟说：泉香而酒冽，玉盏盛来琥珀光，直饮到梅梢月上，醉扶归，却为宜会亲友。众人笑推他，说道：“快醒醒儿吃饭去，这潮凳上还睡出病来呢。”湘云慢启秋波，见了众人，低头看了一看自己，方知是醉了。原是来纳凉避静的，不觉的因多罚了两杯酒，娇嫋不胜，便睡着了，心中反觉自愧。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 66 条：第六十三回　寿怡红群芳开夜宴　死金丹独艳理亲丧</strong></p>
+<blockquote>
+<p>古人中自汉晋五代唐宋以来皆无好诗，只有两句好，说道：纵有千年铁门槛，终须一个土馒头。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 67 条：第六十六回　情小妹耻情归地府　冷二郎一冷入空门</strong></p>
+<blockquote>
+<p>余叹世人不识“情”字，常把“淫”字当作“情”字。殊不知淫里无情，情里无淫，淫必伤情，情必戒淫，情断处淫生，淫断处情生。三姐项下一横，是绝情，乃是正情；湘莲万根皆削，是无情，乃是至情。生为情人，死为情鬼。故结句曰“来自情天，去自情地”，岂非一篇尽情文字？再看他书，则全是“淫”不是“情”了。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 68 条：第七十三回　痴丫头误拾绣春囊　懦小姐不问累金凤</strong></p>
+<blockquote>
+<p>探春处处出头，人谓其能，吾谓其苦；迎春处处藏舌，人谓其怯，吾谓其超。探春运符咒，固足役鬼驱神；迎春说因果，更可降狼伏虎。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 69 条：第七十六回　凸碧堂品笛感凄清　凹晶馆联诗悲寂寞</strong></p>
+<blockquote>
+<p>这山之高处，就叫凸碧；山之低洼近水处，就叫作凹晶。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 70 条：第七十六回　凸碧堂品笛感凄清　凹晶馆联诗悲寂寞</strong></p>
+<blockquote>
+<p>事若求全何所乐</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 71 条：第七十七回　俏丫鬟抱屈夭风流　美优伶斩情归水月</strong></p>
+<blockquote>
+<p>奇怪，奇怪，怎么这些人只一嫁了汉子，染了男人的气味，就这样混帐起来，比男人更可杀了！</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 72 条：第七十七回　俏丫鬟抱屈夭风流　美优伶斩情归水月</strong></p>
+<blockquote>
+<p>晴雯拭泪，就伸手取了剪刀，将左手上两根葱管一般的指甲齐根铰下；又伸手向被内将贴身穿着的一件旧红绫袄脱下，并指甲都与宝玉道：“这个你收了，以后就如见我一般。快把你的袄儿脱下来我穿。我将来在棺材内独自躺着，也就像还在怡红院的一样了。论理不该如此，只是担了虚名，我可也是无可如何了。”宝玉听说，忙宽衣换上，藏了指甲。晴雯又哭道：“回去他们看见了要问，不必撒谎，就说是我的。既担了虚名，越性如此，也不过这样了。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 73 条：第七十七回　俏丫鬟抱屈夭风流　美优伶斩情归水月</strong></p>
+<blockquote>
+<p>晴雯知宝玉难行，遂用被蒙头，总不理他，宝玉方出来。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 74 条：第七十九回　薛文龙悔娶河东狮　贾迎春误嫁中山狼</strong></p>
+<blockquote>
+<p>可知天下古今现成的好景妙事尽多，只是愚人蠢子说不出想不出罢了。</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 75 条：第 八十 回　薛文龙悔娶河东狮　贾迎春误嫁中山狼（续）</strong></p>
+<blockquote>
+<p>一剂不效吃十剂，今日不效明日再吃，今年不效吃到明年。横竖这三味药都是润肺开胃不伤人的，甜丝丝的，又止咳嗽，又好吃。吃过一百岁，人横竖是要死的，死了还妒什么！那时就见效了。” ￼ ￼此科诨一收，方为奇趣之至。说着，宝玉茗烟都大笑不止，骂“油嘴的牛头”。王一贴笑道：“不过是闲着解午盹罢了，有什么关系。说笑了你们就值钱。实告你们说，连膏药也是假的。我有真药，我还吃了作神仙呢。有真的，跑到这里来混？”</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+<p> <strong>第 76 条：附　录　一　《红楼梦》各抄本收藏者序跋</strong></p>
+<blockquote>
+<p>惜乎《红楼梦》之观止于八十回也。全册未窥，怅神龙之无尾</br></p>
+</blockquote>
+<p><font color='#6e6e6e' size=2>2020-08-21 16:49:00</font> </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/30/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC%20/" data-id="ckegkdnum0000s0bn2mcfbui9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/08/30/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC%20/">《红楼梦脂评汇校本》</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 孙鸿<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
-🎯 共 76 条书摘
- 第 1 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀
 
-今古穷酸色心最重。
+<script src="/js/script.js"></script>
 
-2020-08-21 16:49:00 
- 第 2 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀
 
-今古穷酸皆会替女妇心中取中自己。
 
-2020-08-21 16:49:00 
- 第 3 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀
 
-读书人不在黄道黑道，总以事理为要，不及面辞了。
-
-2020-08-21 16:49:00 
- 第 4 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀
-
-谁不解得世事如此，有龙象力者方能放得下。
-
-2020-08-21 16:49:00 
- 第 5 条：第　二　回　贾夫人仙逝扬州城　冷子兴演说荣国府
-
-可知世人原在运数，不在眼下之高低也。此则大有深意存焉。
-
-2020-08-21 16:49:00 
- 第 6 条：第　二　回　贾夫人仙逝扬州城　冷子兴演说荣国府
-
-那雨村 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">孙鸿</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/08/30/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC%20/" title="《红楼梦脂评汇校本》"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《红楼梦脂评汇校本》"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/08/30/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC%20/" title="《红楼梦脂评汇校本》">《红楼梦脂评汇校本》</a><time class="aside-post_meta post-meta-date" datetime="2020-08-30T03:56:47.682Z" title="发表于 2020-08-30 11:56:47">2020-08-30</time></div></div></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">1</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">1</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By 孙鸿</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
+  </div>
+</body>
+</html>
