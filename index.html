@@ -1,313 +1,137 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>孙鸿的博客</title><meta name="description"><meta name="author" content="孙鸿"><meta name="copyright" content="孙鸿"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="孙鸿的博客"><meta property="og:url" content="http://yoursite.com/"><meta property="og:site_name" content="孙鸿的博客"><meta property="og:description"><meta property="og:image" content="http://yoursite.com/img/avatar.png"><meta property="article:published_time" content="2020-10-22T13:15:54.979Z"><meta property="article:modified_time" content="2020-10-22T13:15:54.979Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
-  }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
-  }
-}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-var getCookies = function (name) {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop().split(';').shift()
-}
+    <meta name="author" content="孙鸿">
 
-var autoChangeMode = 'false'
-var t = getCookies('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
+
+
+
+<title>孙鸿的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Sun Hong&#39;s</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Sun Hong&#39;s</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
     }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (Cookies.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
-      }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  hexoversion: '5.1.1',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: false,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  isPhotoFigcaption: true,
-  islazyload: true,
-  isanchor: false    
-}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isSidebar: false,
-  postUpdate: '2020-10-22 21:15:54'
-}</script><noscript><style>
-#nav {
-  opacity: 1
-}
-.justified-gallery img {
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">7</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">5</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/09/15/465xAj9hSLJYpDu.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">孙鸿的博客</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">孙鸿的博客</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/chinasunhong" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:chinagogosunhong@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/10/17/%E5%A4%9A%E7%9B%B8%E6%B5%81/" title="多相流模型 multiphase LBM models">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/10/17/iaCLo95PW41XHyV.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多相流模型 multiphase LBM models"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/17/%E5%A4%9A%E7%9B%B8%E6%B5%81/" title="多相流模型 multiphase LBM models">多相流模型 multiphase LBM models</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-thumbtack article-meta__icon sticky"></i><span class="sticky">置顶</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-17T08:53:00.000Z" title="发表于 2020-10-17 16:53:00">2020-10-17</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="content">多相流模型 multiphase LBM models
-1991,color-gradient model,Gunstensen et al.
-1993,Shan-Chen (SC) model,Shan &amp; Chen.
-1995,free-energy (FE) model,Swift et al.
-1999,He-Chen-Zhang (HCZ) model,He et al.
-
-颜色梯度模型 color-gradient model起源于1988,Rothman-Keller (RK) multiphase lattice gas model,Rothman &amp; Keller。
-
-Multiphase Lattice Boltzmann Methods: Theory and Application1
-
-
-二元模型，双流异色。
-两套分布函数各自对应两种流体。
-额外的碰撞项与重上色过程。
-
-用于模拟不同密度比、不同粘度比的二元流体。发展出了多松弛时间LBM，即2008,multiple relaxation time (MRT) LBM,Ahrenholz et a ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/09/19/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0/" title="《毛泽东传》">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/09/19/BwzYxJ8WFmtpavM.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《毛泽东传》"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/19/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0/" title="《毛泽东传》">《毛泽东传》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-09-19T10:14:22.000Z" title="发表于 2020-09-19 18:14:22">2020-09-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E4%B9%A6%E6%91%98/">书摘</a></span></div><div class="content">
- 
-
-
-《毛泽东传》作者：罗斯&middot;特里尔(Ross Terrill)出版社：中国人民大学出版社出版日期：2006-1ISBN：9787300070100
-
-
-
-🎯 共 67 条书摘
- 第 1 条：第二章　为何求知（1910—1918）
-
-通过坚定的努力，可以使人获得新生。
-
-2020-09-19 18:09:00 
- 第 2 条：第二章　为何求知（1910—1918）
-
-体能是意志的表现，而意志是身体与心灵的纽带。锤炼出坚强的体魄，最终则是为战斗做准备。
-
-2020-09-19 18:09:00 
- 第 3 条：第二章　为何求知（1910—1918）
-
-以糊涂为因，必得糊涂之果，
-
-2020-09-19 18:09:00 
- 第 4 条：第三章　北京和上海的广阔世界（1918—1921）
-
-我觉得我对我自己的国家了解得还不够，把我的时间花在中国会更有益处。
-
-2020-09-19 18:09:00 
- 第 5 条：第三章　北京和上海的广阔世界（1918—1921）
-
-像任何一个无政府主义者一样，毛泽东更了解他反对的是什么，而不太清楚他拥护的是什么。
-
-2020-09-1 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/09/17/%E9%AB%98%E7%AD%89%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="高等流体力学">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/09/17/4DupxRTQGBmE5f8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="高等流体力学"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/17/%E9%AB%98%E7%AD%89%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="高等流体力学">高等流体力学</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-09-17T06:58:52.000Z" title="发表于 2020-09-17 14:58:52">2020-09-17</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="content">第一组，闭卷考试
-绪论教材顾伯勤，流体力学，中国科学文化出版社，四~十一章。
-研究对象：连续介质；continuous deformation 连续变形
-力学基础
-流体力学
-固体力学
-热力学
-
-其中固体力学又可分为：
-
-理论力学 –&gt;刚体
-材料力学 –&gt;线弹性体
-弹性力学 –&gt;复杂弹性体
-
-well-documented laws
-Three conservation laws
-
-Mass
-Lineal Momentum
-Energy
-
-
-State equation$$\rho=\rho(p,T)$$
-
-Boundary conditions
-
-初始条件
-
-
-注：边界条件与初始条件合称定解条件。
-2020-9-17
-流动状态 fluid flow regimes (patterns)
-黏性流动 Viscous fluid flow
-
-判据：克努曾数 Kn$$Kn=\frac{\lambda}{r}=\frac{气体分子平均自由程}{流道当量半径}$$
-
-当 Kn &lt; 0.01，为黏性流动。
-当 Kn &gt; 1，为分子流动。
-
-
-分子流动 Molecular ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/09/15/%E8%AE%A1%E7%AE%97%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="计算流体力学">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/09/15/YCVLNrasjhztAFm.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算流体力学"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/15/%E8%AE%A1%E7%AE%97%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="计算流体力学">计算流体力学</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-09-15T00:20:19.000Z" title="发表于 2020-09-15 08:20:19">2020-09-15</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="content">流体计算力学绪论教材
-H K Verdteeg and W Malasekera. An Introduction to Computational Fluid Dynamics: the Finite Volume Method. Harlow, England: Pearson Education Ltd. (1st Edition, 2000)
-Anderson J D. Computational Fluid Dynamics: The basics with applications. Mcgraw-Hill Companies, Inc. (1995)
-Patanker S V. Numerical Heat Transfer and Fluid Flow. NY: Mcgraw-Hill Companies, Inc. (1980)
-陶文銓，数值传热学，西安交通大学出版社（2004）
-陶文銓，传热与流动问题的多尺度数值模拟：方法与应用，科学出版社（2009）
-Ferziger J H and peric M. Computational Methods for Fluid ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/09/01/%E7%BA%A2%E6%8B%82%E5%A4%9C%E5%A5%94/" title="《红拂夜奔》">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/09/01/avL1wIXt9gNFhRS.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《红拂夜奔》"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/01/%E7%BA%A2%E6%8B%82%E5%A4%9C%E5%A5%94/" title="《红拂夜奔》">《红拂夜奔》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T16:00:00.000Z" title="发表于 2020-09-01 00:00:00">2020-09-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E4%B9%A6%E6%91%98/">书摘</a></span></div><div class="content">
- 
-
-
-《红拂夜奔》作者：王小波出版社：新经典文化/北京十月文艺出版社出版日期：2017-7ISBN：9787530216583
-
-
-
-🎯 共 60 条书摘
- 第 1 条：自序
-
-你真美呀，请等一等！我哀惋正在失去的东西。
-
-2020-09-01 14:19:00 
- 第 2 条：第一章
-
-不是老百姓的人坐在八匹马拉的轿车里呼啸而过时，泥水能溅到路边的店铺里面。正如今日有些豪华轿车跟在你自行车后猛按喇叭，嫌你聋得还不够快。老百姓总是恨非老百姓，这是原因之一。
-
-2020-09-01 14:19:00 
- 第 3 条：第一章
-
-所以那些人是自愿活得那么累赘，因为他们想省钱。他们想省钱的原因是他们没有钱。
-
-2020-09-01 14:19:00 
- 第 4 条：第一章
-
-再好的发明到了蠢货手里也不能起作用。可惜的是这世界上的蠢货总是那么多。但是人没法子和蠢货争论。
-
-2020-09-01 14:19:00 
- 第 5 条：第一章
-
-那种地方聚集着一些自以为是的知识分子的人，而且他们中间每个人都自以为是世界上最后一个知识分子。那些人都抽大麻，用希腊语交谈，搞同性恋；除此之外，每个人都像 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/30/%E7%BA%A2%E6%A5%BC%E5%8D%81%E4%BA%8C%E5%B1%82%EF%BC%9A%E5%91%A8%E6%B1%9D%E6%98%8C%E5%A6%99%E8%A7%A3%E7%BA%A2%E6%A5%BC/" title="《红楼十二层：周汝昌妙解红楼》">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/08/30/8jHoMywnTSXtfvi.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《红楼十二层：周汝昌妙解红楼》"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/30/%E7%BA%A2%E6%A5%BC%E5%8D%81%E4%BA%8C%E5%B1%82%EF%BC%9A%E5%91%A8%E6%B1%9D%E6%98%8C%E5%A6%99%E8%A7%A3%E7%BA%A2%E6%A5%BC/" title="《红楼十二层：周汝昌妙解红楼》">《红楼十二层：周汝昌妙解红楼》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-30T04:08:22.000Z" title="发表于 2020-08-30 12:08:22">2020-08-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E4%B9%A6%E6%91%98/">书摘</a></span></div><div class="content">
- 
-
-
-《红楼十二层：周汝昌妙解红楼》作者：周汝昌出版社：北京联合出版公司出版日期：2018-5ISBN：9787550287235
-
-
-
-🎯 共 16 条书摘
- 第 1 条：致读者
-
-曹雪芹的一支妙笔，有文、有史、有哲，囊括了“真、善、美”；他的手法千变万化，昔人说得“活虎生龙”一般。他写的书，人谓“百科全书”，其实不同于“词典”死知识的罗列，他不仅是小贩“摆摊儿”，《红楼梦》是一部充满生命、生机、生趣的活生生的中华文化的艺术体现。
-
-2020-08-29 08:01:00 
- 第 2 条：《红楼梦》与中华文化
-
-这说明了我的一种基本认识：《红楼梦》是我们中华民族的一部古往今来、绝无仅有的“文化小说”。
-
-2020-08-29 08:01:00 
- 第 3 条：《红楼梦》与中华文化
-
-他借了他对一大群女子的命运的感叹伤怀，写了他对人与人之间应当如何相待的巨大问题。
-
-2020-08-29 08:01:00 
- 第 4 条：中华文化见《红楼》
-
-米之核曰精，日之朗曰晴，水之澄曰清，目之宝曰睛，草之英曰菁，女之美者曰靓，男之俊者曰倩，故一切人、物的最宝贵的质素都借米之精而喻称为“精” ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/19/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC/" title="《红楼梦脂评汇校本》">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/08/30/RJjb1vAVyPWgkOl.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《红楼梦脂评汇校本》"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/19/%E7%BA%A2%E6%A5%BC%E6%A2%A6%E8%84%82%E8%AF%84%E6%B1%87%E6%A0%A1%E6%9C%AC/" title="《红楼梦脂评汇校本》">《红楼梦脂评汇校本》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-19T04:55:22.000Z" title="发表于 2020-08-19 12:55:22">2020-08-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E4%B9%A6%E6%91%98/">书摘</a></span></div><div class="content">
- 
-
-《红楼梦脂评汇校本》作者：曹雪芹 脂砚斋 吴铭恩出版社：北方联合出版传媒集团 万卷出版公司出版日期：2013-10ISBN：9787547028056
-
-
-
-🎯 共 76 条书摘
- 第 1 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀
-
-今古穷酸色心最重。
-
-2020-08-21 16:49:00 
- 第 2 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀
-
-今古穷酸皆会替女妇心中取中自己。
-
-2020-08-21 16:49:00 
- 第 3 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀
-
-读书人不在黄道黑道，总以事理为要，不及面辞了。
-
-2020-08-21 16:49:00 
- 第 4 条：第　一　回　甄士隐梦幻识通灵　贾雨村风尘怀闺秀
-
-谁不解得世事如此，有龙象力者方能放得下。
-
-2020-08-21 16:49:00 
- 第 5 条：第　二　回　贾夫人仙逝扬州城　冷子兴演说荣国府
-
-可知世人原在运数，不在眼下之高低也。此则大有深意存焉。
-
-2020-08-21 16:49:00 
- 第 6 条：第　二　回　贾夫人仙逝扬州城　冷子兴演说荣国府
-
-那雨村 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">孙鸿</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">7</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories"><div class="headline">分类</div><div class="length_num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/chinasunhong"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/chinasunhong" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:chinagogosunhong@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">长期博客项目。</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/10/17/%E5%A4%9A%E7%9B%B8%E6%B5%81/" title="多相流模型 multiphase LBM models"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/10/17/iaCLo95PW41XHyV.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多相流模型 multiphase LBM models"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/10/17/%E5%A4%9A%E7%9B%B8%E6%B5%81/" title="多相流模型 multiphase LBM models">多相流模型 multiphase LBM models</a><time class="aside-post_meta post-meta-date" datetime="2020-10-17T08:53:00.000Z" title="发表于 2020-10-17 16:53:00">2020-10-17</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/09/19/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0/" title="《毛泽东传》"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/09/19/BwzYxJ8WFmtpavM.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《毛泽东传》"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/09/19/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0/" title="《毛泽东传》">《毛泽东传》</a><time class="aside-post_meta post-meta-date" datetime="2020-09-19T10:14:22.000Z" title="发表于 2020-09-19 18:14:22">2020-09-19</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/09/17/%E9%AB%98%E7%AD%89%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="高等流体力学"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/09/17/4DupxRTQGBmE5f8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="高等流体力学"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/09/17/%E9%AB%98%E7%AD%89%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="高等流体力学">高等流体力学</a><time class="aside-post_meta post-meta-date" datetime="2020-09-17T06:58:52.000Z" title="发表于 2020-09-17 14:58:52">2020-09-17</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/09/15/%E8%AE%A1%E7%AE%97%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="计算流体力学"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/09/15/YCVLNrasjhztAFm.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算流体力学"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/09/15/%E8%AE%A1%E7%AE%97%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6/" title="计算流体力学">计算流体力学</a><time class="aside-post_meta post-meta-date" datetime="2020-09-15T00:20:19.000Z" title="发表于 2020-09-15 08:20:19">2020-09-15</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/09/01/%E7%BA%A2%E6%8B%82%E5%A4%9C%E5%A5%94/" title="《红拂夜奔》"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/09/01/avL1wIXt9gNFhRS.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《红拂夜奔》"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/09/01/%E7%BA%A2%E6%8B%82%E5%A4%9C%E5%A5%94/" title="《红拂夜奔》">《红拂夜奔》</a><time class="aside-post_meta post-meta-date" datetime="2020-08-31T16:00:00.000Z" title="发表于 2020-09-01 00:00:00">2020-09-01</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B9%A6%E6%91%98/"><span class="card-category-list-name">书摘</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">学习笔记</span><span class="card-category-list-count">3</span></a></li>
-                       
-            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E4%BC%A0%E8%AE%B0/" style="font-size: 16px; color: #999">传记</a> <a href="/tags/%E5%B0%8F%E8%AF%B4/" style="font-size: 16px; color: #999">小说</a> <a href="/tags/%E6%B5%81%E4%BD%93/" style="font-size: 22px; color: #99a9bf">流体</a> <a href="/tags/%E7%8E%8B%E5%B0%8F%E6%B3%A2/" style="font-size: 16px; color: #999">王小波</a> <a href="/tags/%E7%BA%A2%E6%A5%BC%E6%A2%A6/" style="font-size: 19px; color: #99a1ac">红楼梦</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">2</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">7</div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">19.6k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://i.loli.net/2020/09/15/465xAj9hSLJYpDu.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By 孙鸿</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script>var endLoading = function () {
-  document.body.style.overflow = 'auto';
-  document.getElementById('loading-box').classList.add("loaded")
-}
-window.addEventListener('load',endLoading)</script><div class="js-pjax"><script>function subtitleType () {
-  if (true) { 
-    var typed = new Typed("#subtitle", {
-      strings: "暴虎冯河,有耻且格".split(","),
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50
-    })
-  } else {
-    document.getElementById("subtitle").innerHTML = '暴虎冯河'
-  }
-}
-
-if (true) {
-  if (typeof Typed === 'function') subtitleType()
-  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
-} else {
-  subtitleType()
-}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.99},"log":false});</script></body></html>
+</script>
+        <div class="main">
+            
+    <div class="container">
+    <div class="intro">
+        <div class="avatar">
+            <a href="/archives"><img src="/image/avatar.jpg"></a>
+        </div>
+        <div class="nickname">孫鴻</div>
+        <div class="description"><p>Focus on fluids, and <em>HONGLOUMENG</em>. <br><strong>星星之火 可以燎原</strong></p>
+</div>
+        <div class="links">
+            
+                
+                    <a class="link-item" title="Blog" href="/archives">
+                        
+                        
+                            <i class="iconfont icon-blog"></i>
+                        
+                    </a>
+                
+            
+        </div>
+    </div>
+</div>
+
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 孙鸿 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.99},"log":false});</script></body>
+</html>
