@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>高等传热 | 孙鸿的博客</title><meta name="description" content="导热理论导热：相互接触的物体之间依靠微观粒子的热运动传递热量的过程。 纯导热无宏观运动 热流密度：单位时间通过单位面积传递的热量。$ q\quad (\mathrm{W&#x2F;m^2}) $ 傅里叶定律：温度场与热流场的联系。 导热系数$$\lambda&#x3D;\frac{q}{-\mathrm{grad}t}\qquad[\mathrm{W&#x2F;(m\cdot k)}]$$  气体导热：分子热运动 液体导热：晶"><meta name="keywords" content="传热"><meta name="author" content="孙鸿"><meta name="copyright" content="孙鸿"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/2020/11/19/%E9%AB%98%E7%AD%89%E4%BC%A0%E7%83%AD/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="高等传热"><meta property="og:url" content="http://yoursite.com/2020/11/19/%E9%AB%98%E7%AD%89%E4%BC%A0%E7%83%AD/"><meta property="og:site_name" content="孙鸿的博客"><meta property="og:description" content="导热理论导热：相互接触的物体之间依靠微观粒子的热运动传递热量的过程。 纯导热无宏观运动 热流密度：单位时间通过单位面积传递的热量。$ q\quad (\mathrm{W&#x2F;m^2}) $ 傅里叶定律：温度场与热流场的联系。 导热系数$$\lambda&#x3D;\frac{q}{-\mathrm{grad}t}\qquad[\mathrm{W&#x2F;(m\cdot k)}]$$  气体导热：分子热运动 液体导热：晶"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2020-11-19T02:46:08.000Z"><meta property="article:modified_time" content="2021-01-06T07:28:34.179Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.1.1',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2021-01-06 15:28:34'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">7</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div></div><hr/></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%BC%E7%83%AD%E7%90%86%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">导热理论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%B3%E6%80%81%E5%AF%BC%E7%83%AD"><span class="toc-number">2.</span> <span class="toc-text">稳态导热</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%86%85%E7%83%AD%E6%BA%90%E4%B8%80%E7%BB%B4%E7%A8%B3%E6%80%81%E5%AF%BC%E7%83%AD"><span class="toc-number">2.0.1.</span> <span class="toc-text">无内热源一维稳态导热</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E6%9C%89%E5%86%85%E7%83%AD%E6%BA%90%E7%9A%84%E4%B8%80%E7%BB%B4%E7%A8%B3%E6%80%81%E5%AF%BC%E7%83%AD"><span class="toc-number">2.0.2.</span> <span class="toc-text">带有内热源的一维稳态导热</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%A8%B3%E6%80%81%E5%AF%BC%E7%83%AD%E5%88%86%E7%A6%BB%E5%8F%98%E9%87%8F%E6%B3%95"><span class="toc-number">2.0.3.</span> <span class="toc-text">二维稳态导热分离变量法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E7%A8%B3%E6%80%81%E5%AF%BC%E7%83%AD"><span class="toc-number">3.</span> <span class="toc-text">非稳态导热</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%B9%B3%E5%A3%81%E5%9C%A8%E7%AD%89%E6%B8%A9%E4%BB%8B%E8%B4%A8%E4%B8%AD%E5%86%B7%E5%8D%B4"><span class="toc-number">3.0.1.</span> <span class="toc-text">大平壁在等温介质中冷却</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%BC%E7%83%AD%E9%97%AE%E9%A2%98%E7%9A%84%E6%95%B0%E5%80%BC%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">导热问题的数值解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%B3%E6%80%81%E5%AF%BC%E7%83%AD%E7%9A%84%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90"><span class="toc-number">4.0.1.</span> <span class="toc-text">稳态导热的数值分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-number">4.0.2.</span> <span class="toc-text">线性代数方程组</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E6%B5%81%E6%8D%A2%E7%83%AD"><span class="toc-number">5.</span> <span class="toc-text">对流换热</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%B5%81%E8%BE%B9%E7%95%8C%E5%B1%82"><span class="toc-number">6.</span> <span class="toc-text">层流边界层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E8%BE%B9%E7%95%8C%E5%B1%82"><span class="toc-number">6.0.1.</span> <span class="toc-text">速度边界层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%A9%E5%BA%A6%E8%BE%B9%E7%95%8C%E5%B1%82"><span class="toc-number">6.0.2.</span> <span class="toc-text">温度边界层</span></a></li></ol></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">孙鸿的博客</a></span><span class="pull-right menus"><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">高等传热</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-19T02:46:08.000Z" title="发表于 2020-11-19 10:46:08">2020-11-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-06T07:28:34.179Z" title="更新于 2021-01-06 15:28:34">2021-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="导热理论"><a href="#导热理论" class="headerlink" title="导热理论"></a>导热理论</h1><p><strong>导热</strong>：相互接触的物体之间依靠微观粒子的热运动传递热量的过程。</p>
+<p><em>纯导热无宏观运动</em></p>
+<p><strong>热流密度</strong>：单位时间通过单位面积传递的热量。$ q\quad (\mathrm{W/m^2}) $</p>
+<p><strong>傅里叶定律</strong>：温度场与热流场的联系。</p>
+<p>导热系数<br>$$<br>\lambda=\frac{q}{-\mathrm{grad}t}\qquad[\mathrm{W/(m\cdot k)}]<br>$$</p>
+<ul>
+<li>气体导热：分子热运动</li>
+<li>液体导热：晶格振动</li>
+<li>金属导热：自由电子迁移</li>
+<li>合金：晶格振动</li>
+</ul>
+<p>$$<br>\lambda_{纯金属}&gt;\lambda_{合金}<br>$$</p>
+<p>各向异性导热材料：石墨。</p>
+<p>棉被打湿后导热系数上升。</p>
+<p><strong>热扩散率/导温系数</strong>：材料内部温度趋于均匀的能力。<br>$$<br>a=\frac{\lambda}{\rho c}<br>$$<br><strong>边界条件</strong>：</p>
+<ol>
+<li>第一类：给定边界上的温度。（温度可以是时间和位置的函数）</li>
+<li>第二类：给定边界上的法向热流密度。（热流密度可以是时间和位置的函数）<em>绝热边界是特例</em></li>
+<li>第三类：给定外界介质温度和边界上的对流换热表面传热系数。（对流边界条件）</li>
+</ol>
+<h1 id="稳态导热"><a href="#稳态导热" class="headerlink" title="稳态导热"></a>稳态导热</h1><h3 id="无内热源一维稳态导热"><a href="#无内热源一维稳态导热" class="headerlink" title="无内热源一维稳态导热"></a>无内热源一维稳态导热</h3><p>导热微分方程：<br>$$<br>\frac{\mathrm{d}^2t}{\mathrm{d}x^2}=0<br>$$<br>通解为：<br>$$<br>t=C_1x+C_2<br>$$<br>边界条件;<br>$$<br>x=0,t=t_1\x=\delta,t=t_2<br>$$<br>温度分布：<br>$$<br>t=t_1-\frac{t_1-t_2}{\delta}x<br>$$<br>热流密度;<br>$$<br>q=-\lambda\frac{\mathrm{d}t}{\mathrm{d}x}=\lambda\frac{t_1-t_2}{\delta}<br>$$</p>
+<h3 id="带有内热源的一维稳态导热"><a href="#带有内热源的一维稳态导热" class="headerlink" title="带有内热源的一维稳态导热"></a>带有内热源的一维稳态导热</h3><p>导热微分方程：<br>$$<br>\frac{\mathrm{d}^2t}{\mathrm{d}x^2}+\frac{q_V}{\lambda}=0<br>$$<br>边界条件：<br>$$<br>x=0,t=0\x=\delta,t=0<br>$$<br>通解：<br>$$<br>t=-\frac{q_V}{2\lambda}x^2+C_1x+C_2<br>$$<br>温度分布：<br>$$<br>t=\frac{q_V}{2\lambda}x(\delta-x)<br>$$</p>
+<hr>
+<p>边界条件2：<br>$$<br>x=0,t=t_1\x=\delta,t=t_2<br>$$<br>温度分布2：<br>$$<br>t={\color{Blue}t_1+\frac{t_2-t_1}{\delta}}+{\color{Red}\frac{q_V}{2\lambda}x(\delta-x)}<br>$$<br>热流密度2：<br>$$<br>q={\color{Blue}\lambda\frac{t_1-t_2}{\delta}}+{\color{Red}\frac{q_V}{2}(2x-\delta)}<br>$$</p>
+<h3 id="二维稳态导热分离变量法"><a href="#二维稳态导热分离变量法" class="headerlink" title="二维稳态导热分离变量法"></a>二维稳态导热分离变量法</h3><p>控制方程：<br>$$<br>\frac{\partial^2\theta}{\partial x^2}+\frac{\partial^2\theta}{\partial y^2}=0<br>$$<br>边界条件：<br>$$<br>x=0,\theta=0\x=\delta,\theta=0\y=0,\theta=0\y=H,\theta=f_1(x)=f(x)-t_0<br>$$<br><strong>假设</strong>：<br>$$<br>\theta(x,y)=X(x)Y(y)<br>$$<br>代入控制方程：<br>$$<br>-\frac{X’’}{X}=\frac{Y’’}{Y}=\varepsilon^2=常数\X’’+\varepsilon^2X=0\{\color{Brown}Y’’-\varepsilon^2Y=0}<br>$$<br>通解：<br>$$<br>X=A\cos(\varepsilon x)+B\sin(\varepsilon x)\{\color{Brown}Y=C\operatorname{sh}(\varepsilon x)+D\operatorname{ch}(\varepsilon x)}<br>$$<br>$ x $方向边界条件：<br>$$<br>x=0,X=0\x=\delta,X=0<br>$$</p>
+<p>代入：<br>$$<br>A=0\\therefore B\sin(\varepsilon x)=0\\because B\neq 0\\therefore\sin(\varepsilon x)=0<br>$$<br>上式为特征方程，有无穷个解，取正：<br>$$<br>\varepsilon_m=\frac{m\pi}{\delta},\quad m=1,2,…\\therefore X_m=B_m\sin(\varepsilon_m x)<br>$$</p>
+<p>$ {\color{Brown}y} $方向边界条件：<br>$$<br>{\color{Brown}y=0,Y=0}<br>$$<br>代入：<br>$$<br>\color{Brown}<br>D=0,<br>Y=C_m\operatorname{sh}(\varepsilon y)<br>$$<br>$\theta$为：<br>$$<br>\theta_m=C_m\sin(\varepsilon_m x)\operatorname{sh}(\varepsilon_m y)\<br>\theta=\sum_{m=1}^\infin C_m\sin(\varepsilon_m x)\operatorname{sh}(\varepsilon_m y)<br>$$<br><strong>注：求$C_m$要展开正弦级数，见书31页。</strong></p>
+<h1 id="非稳态导热"><a href="#非稳态导热" class="headerlink" title="非稳态导热"></a>非稳态导热</h1><p>集总热容：忽略物体内部导热，只考虑其与环境换热。即假设温度只与时间有关，与位置无关。</p>
+<p><strong>毕渥数</strong>：<br>$$<br>Bi=\frac{hL}{\lambda}<br>$$<br>$L$为特征尺寸，$Bi$为物体<strong>内部导热热阻</strong>与<strong>表面换热热阻</strong>之比。</p>
+<p>通常，$Bi&lt;0.1$为薄壁物体。</p>
+<p>对无内热源的物体，表面服从牛顿冷却定理，环境温度为常量：<br>$$<br>c\rho V\frac{\mbox{d}t}{\mbox{d}\tau}=-hA(t-t_f)<br>$$<br>过余温度：<br>$$<br>\theta=t-t_f<br>$$<br>描述方程：<br>$$<br>c\rho V\frac{\mbox{d}t}{\mbox{d}\tau}+hA\theta=0<br>$$<br>通解：<br>$$<br>\theta=C\exp(-\frac{hA}{c\rho V}\tau)<br>$$<br>初始条件：<br>$$<br>\tau=0,\theta=\theta_0=t-t_0<br>$$<br>代入：<br>$$<br>C=\theta_0\<br>\frac{\theta}{\theta_0}=\exp(-\frac{hA}{c\rho V}\tau)<br>$$<br>时间常数：<br>$$<br>\tau_r=\frac{c\rho V}{hA}<br>$$<br>具有时间量纲，表征物体温度变化的快慢，即热惯性大小。</p>
+<p>$\tau=\tau_r$时，$\theta=0.368\theta_0$。4倍时间常数，$e^{-4}=1.83$%</p>
+<h3 id="大平壁在等温介质中冷却"><a href="#大平壁在等温介质中冷却" class="headerlink" title="大平壁在等温介质中冷却"></a>大平壁在等温介质中冷却</h3><p>傅里叶数：<br>$$<br>Fo=\frac{a\tau}{\delta^2}<br>$$<br>则：<br>$$<br>\frac{\theta}{\theta_0}=F_1(\frac{x}{\delta},Fo,Bi)<br>$$<br>冷却率52页。</p>
+<h1 id="导热问题的数值解"><a href="#导热问题的数值解" class="headerlink" title="导热问题的数值解"></a>导热问题的数值解</h1><p>泰勒级数：把微分方程转为代数方程。108页</p>
+<p>向前差分：<br>$$<br>\frac{\mbox{d}f}{\mbox{d}x}=\frac{f(x+\Delta x)-f(x)}{\Delta x}+O(\Delta x)<br>$$<br>向后差分：<br>$$<br>\frac{\mbox{d}f}{\mbox{d}x}=\frac{f(x)-f(x-\Delta x)}{\Delta x}+O(\Delta x)<br>$$<br>中心差分：<br>$$<br>\frac{\mbox{d}f}{\mbox{d}x}=\frac{f(x+\Delta x)-f(x-\Delta x)}{2\Delta x}+O[(\Delta x)^2]<br>$$<br>$O(\Delta x)$为截断误差。二阶差分108页。</p>
+<h3 id="稳态导热的数值分析"><a href="#稳态导热的数值分析" class="headerlink" title="稳态导热的数值分析"></a>稳态导热的数值分析</h3><p>有内热源的二维稳态，常物性泊松方程：<br>$$<br>\frac{\partial^2t}{\partial x^2}+\frac{\partial^2t}{\partial y^2}+\frac{q_V}{\lambda}=0<br>$$<br>内节点$(i,j)$均满足：<br>$$<br>\frac{t_{i+1,j}+t_{i-1,j}-2t_{i,j}}{(\Delta x)^2}+\frac{t_{i,j+1}+t_{i,j-1}-2t_{i,j}}{(\Delta y)^2}+\frac{q_{V.i,j}}{\lambda}=0<br>$$<br>若正方形网格，无内热源：<br>$$<br>t_{i,j}=1/4周围四个点<br>$$<br>边界处理110页。</p>
+<h3 id="线性代数方程组"><a href="#线性代数方程组" class="headerlink" title="线性代数方程组"></a>线性代数方程组</h3><p>对角占优原则，系数最大的放对角线。</p>
+<h1 id="对流换热"><a href="#对流换热" class="headerlink" title="对流换热"></a>对流换热</h1><p>热对流：依靠流体的流动将热量从一处传递到另一处的现象，即运动的流体质点以热焓形式将热量带走。</p>
+<p>热对流只发生在运动的流体中。</p>
+<p><strong>流体流动时，热对流与导热同时发生，密不可分。</strong></p>
+<p>对流换热：流动流体与固体壁面或其他界面之间的换热。</p>
+<p>紧贴壁面处流体因粘性停滞不动，导热主导。</p>
+<p><strong>无粘流体有对流传热，必有导热。</strong></p>
+<p>滑移边界有导热。</p>
+<p>混合对流：<br>$$<br>强制对流0.1\le\frac{Gr}{Re^2}\le10自然对流<br>$$<br>傅里叶定律（边界层）：<br>$$<br>q_w=-\lambda\frac{\partial t}{\partial y}|<em>{y=w,x}<br>$$<br>牛顿冷却：<br>$$<br>q_c=h(t_{w,x}-t_\infin)<br>$$<br>等：<br>$$<br>h_x=-\frac{\lambda}{t</em>{w,x}-t_\infin}\frac{\partial t}{\partial y}|_{y=w,x}<br>$$<br>其中$t_\infin$外部流动取主流温度，内部流动取截面均温。</p>
+<p><strong>努塞尔数</strong>：流体在壁面处法向无量纲过余温度梯度。<br>$$<br>Nu=\frac{hl}{\lambda}<br>$$<br><strong>普朗特数</strong>：流体动量扩散能力与热扩散能力相对大小。<br>$$<br>Pr=\frac{\nu}{a}<br>$$<br><strong>格拉晓夫数</strong>：流体浮升力与粘性力相对大小。<br>$$<br>Gr=\frac{g\alpha\Delta tL^3}{\nu^3}<br>$$<br>$\alpha$为体积膨胀率。</p>
+<p>被加热的流体传热系数较高。？</p>
+<p>总能量=焓值+动能，$e$量纲为[J/kg]。</p>
+<p>能量方程的温度表达式书149页。</p>
+<ul>
+<li>理想气体——状态方程</li>
+<li>实际气体——范德瓦尔方程</li>
+<li>液体——液体状态方程</li>
+</ul>
+<h1 id="层流边界层"><a href="#层流边界层" class="headerlink" title="层流边界层"></a>层流边界层</h1><h3 id="速度边界层"><a href="#速度边界层" class="headerlink" title="速度边界层"></a>速度边界层</h3><p>边界层外缘为主流速度 99%处，即$u=0.99U_\infin$。</p>
+<p>主流速度上升，边界层厚度上升。</p>
+<p>对于外掠平板流动，一般取$Re_{cr}=5\times10^5$，如果无限长，必会变湍流。</p>
+<p>对于管内流动，速度边界层汇合于通道中心。</p>
+<p>​    层流：$l/d=0.05RePr$</p>
+<p>​    湍流：$l/d=60$</p>
+<h3 id="温度边界层"><a href="#温度边界层" class="headerlink" title="温度边界层"></a>温度边界层</h3><p>过余温度等于99%主流区流体的过余温度。防止温度出现0$^{\circ}\mbox{C}$</p>
+<ul>
+<li>层流：导热</li>
+<li>湍流：<ul>
+<li>粘性底层：导热</li>
+<li>湍流核心：对流</li>
+</ul>
+</li>
+</ul>
+<p>强化传热：破坏热边界层发展。</p>
+<p><strong>普朗特数</strong>：<br>$$<br>Pr=1:\delta_v=\delta_t\Pr&gt;1:\delta_v&gt;\delta_t<br>$$</p>
+<ul>
+<li>油类：$10^2-10^3$</li>
+<li>水：$0.9-10$</li>
+<li>气体：$0.7-1$</li>
+<li>液态金属：$0.01$</li>
+</ul>
+</div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BC%A0%E7%83%AD/">传热</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/01/06/%E9%AB%98%E7%AD%89%E4%BC%A0%E7%83%AD/"><img class="prev-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2020/10/31/mytex/"><img class="next-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">mytex</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By 孙鸿</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.99},"log":false});</script></body></html>
